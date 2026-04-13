@@ -135,7 +135,7 @@ python record_gameplay.py
 
 ![BC vs PPO reward comparison on LunarLander](results/figures/ll_reward_comparison.png)
 
-**PPO learning curve on LunarLander** — training budget required for PPO to reach BC's final performance.
+**PPO learning curve on LunarLander** — training time required for PPO to reach BC's final performance.
 
 ![PPO learning curve on LunarLander](results/figures/ll_ppo_learning_curve.png)
 
