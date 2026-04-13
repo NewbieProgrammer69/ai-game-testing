@@ -1,6 +1,6 @@
 # AI-Based Automated Game Testing Using Behavior Cloning and Reinforcement Learning
 
-*Undergraduate Thesis — Sichuan University, Software Engineering (2025)*
+*Undergraduate Thesis — Sichuan University, Software Engineering (2026)*
 
 ![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)
 ![PyTorch](https://img.shields.io/badge/PyTorch-2.x-EE4C2C?logo=pytorch&logoColor=white)
@@ -147,6 +147,6 @@ python record_gameplay.py
 
 ## Acknowledgments
 
-- Undergraduate thesis project at **Sichuan University** (2025)
+- Undergraduate thesis project at **Sichuan University** (2026)
 - Supervisor: **Li Xinsheng**
 - Built with [Stable-Baselines3](https://github.com/DLR-RM/stable-baselines3), [PyTorch](https://pytorch.org/), and [Gymnasium](https://gymnasium.farama.org/)
