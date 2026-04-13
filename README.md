@@ -27,7 +27,7 @@ All numbers above are read directly from the CSVs in [results/logs/](results/log
 
 ## Methodology
 
-The pipeline trains a PPO agent as the RL baseline and expert demonstration source, collects rollouts from the trained policy, and then trains a BC network via supervised learning on those state–action pairs. Both agents are evaluated under the same protocol, and three follow-up experiments probe how BC behaves as a function of data quantity, expert quality, and training budget relative to PPO.
+The pipeline trains a PPO agent as the RL baseline and expert demonstration source, collects rollouts from the trained policy, and then trains a BC network via supervised learning on those state–action pairs. Both agents are evaluated under the same protocol, and three follow-up experiments probe how BC behaves as a function of data quantity, expert quality, and training time compared to PPO.
 
 ```
  PPO Training  →  Expert Demo Collection  →  BC Training  →  Evaluation  →  Comparison
@@ -141,7 +141,7 @@ python record_gameplay.py
 
 ## Gameplay Demos
 
-| PPO (trained) | BC (clean expert) | BC (75% action noise) |
+| PPO (trained) | BC | BC (75% action noise) |
 |:---:|:---:|:---:|
 | ![PPO LunarLander](results/gameplay/ppo_lunarlander.gif) | ![BC LunarLander](results/gameplay/bc_lunarlander.gif) | ![BC Noisy LunarLander](results/gameplay/bc_lunarlander_noisy75.gif) |
 
