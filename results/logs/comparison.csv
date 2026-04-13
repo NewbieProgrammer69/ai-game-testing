@@ -1,0 +1,5 @@
+metric,PPO,BC
+mean_reward,500.0,500.0
+std_reward,0.0,0.0
+mean_length,500.0,500.0
+success_rate,100.0,100.0
