@@ -47,14 +47,23 @@ def plot_reward_comparison(ppo_df, bc_df):
 
 
 def plot_episode_length_comparison(ppo_df, bc_df):
-    labels = ["PPO", "BC"]
-    means = [ppo_df["length"].mean(), bc_df["length"].mean()]
-    stds = [ppo_df["length"].std(), bc_df["length"].std()]
-
-    fig, ax = plt.subplots()
-    ax.bar(labels, means, yerr=stds, capsize=8, color=[PPO_COLOR, BC_COLOR])
-    ax.set_title("LunarLander Mean Episode Length: PPO vs BC")
-    ax.set_ylabel("Steps")
+    # Violin plot of per-episode length for PPO and BC. A violin shows median,
+    # quartiles, and the full shape of the distribution in a compact form, which
+    # is more informative than two big bars and also less visually heavy.
+    long = pd.DataFrame({
+        "length": pd.concat([ppo_df["length"], bc_df["length"]], ignore_index=True),
+        "agent": (["PPO"] * len(ppo_df)) + (["BC"] * len(bc_df)),
+    })
+    fig, ax = plt.subplots(figsize=(7, 5))
+    sns.violinplot(
+        data=long, x="agent", y="length", hue="agent",
+        palette={"PPO": PPO_COLOR, "BC": BC_COLOR},
+        inner="quartile", cut=0, linewidth=1.4,
+        ax=ax, legend=False,
+    )
+    ax.set_title("LunarLander Episode Length Distribution: PPO vs BC")
+    ax.set_xlabel("")
+    ax.set_ylabel("Episode length (steps)")
     save_fig("ll_episode_length_comparison.png")
 
 

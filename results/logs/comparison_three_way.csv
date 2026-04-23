@@ -1,0 +1,5 @@
+metric,PPO,BC_full,BC_1pct
+mean_reward,500.0,500.0,216.79
+std_reward,0.0,0.0,169.30549132836595
+mean_length,500.0,500.0,216.79
+success_rate,100.0,100.0,42.0

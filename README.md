@@ -17,7 +17,7 @@ This project systematically compares **Behavior Cloning (BC)** and **Proximal Po
 
 | Experiment | Environment | Finding |
 |---|---|---|
-| BC vs PPO (Simple) | CartPole-v1 | Both achieve identical perfect performance (500/500 reward, 100% success) |
+| BC vs PPO (Simple) | CartPole-v1 | PPO and BC (full data) both hit the 500/500 ceiling at 100% success; BC trained on only 1% of the demos drops to 216.8 reward / 42% success, showing the tie is a function of demo coverage rather than the method |
 | BC vs PPO (Complex) | LunarLander-v3 | BC matches PPO with high-quality expert data (236.30 vs 236.43 reward, 88% vs 90% success) |
 | Data Efficiency | LunarLander-v3 | BC saturates quickly — 10% of demo data (5,639 samples) reaches 85% success rate |
 | Expert Quality | LunarLander-v3 | BC degrades sharply with noisy demos — reward drops from 233.0 (clean) to 61.3 at 75% action noise |
@@ -57,7 +57,9 @@ ai-game-testing/
 │   ├── train_bc.py                  # Train BC on demonstrations
 │   ├── evaluate_bc.py               # Evaluate BC agent
 │   ├── compare.py                   # Side-by-side comparison
-│   └── visualize.py                 # Generate CartPole plots
+│   ├── visualize.py                 # Generate CartPole plots
+│   ├── cartpole_reduced_bc.py       # Train and evaluate BC on 1% of the demos
+│   └── cartpole_three_way.py        # PPO vs BC (full) vs BC (1%) comparison + figures
 │
 ├── LunarLander Pipeline
 │   ├── ll_train_ppo.py              # Train PPO on LunarLander-v3
@@ -106,6 +108,8 @@ python train_bc.py
 python evaluate_bc.py
 python compare.py
 python visualize.py
+python cartpole_reduced_bc.py        # 1% data BC (demo-coverage ablation)
+python cartpole_three_way.py         # three-way table + figure regen
 
 # --- LunarLander pipeline ---
 python ll_train_ppo.py
@@ -127,15 +131,15 @@ python record_gameplay.py
 
 ## Sample Results
 
-**Expert quality vs BC performance** — reward and success rate both collapse once random actions dominate the demonstrations.
+**Expert quality vs BC performance on LunarLander-v3** — reward and success rate both collapse once random actions dominate the demonstrations.
 
 ![Noisy Expert — reward and success vs action noise](results/figures/ll_noisy_expert_combined.png)
 
-**BC vs PPO on LunarLander** — with clean expert data, BC matches PPO on mean reward.
+**BC vs PPO on LunarLander-v3** — with clean expert data, BC matches PPO on mean reward.
 
 ![BC vs PPO reward comparison on LunarLander](results/figures/ll_reward_comparison.png)
 
-**PPO learning curve on LunarLander** — training time required for PPO to reach BC's final performance.
+**PPO learning curve on LunarLander-v3** — training time required for PPO to reach BC's final performance.
 
 ![PPO learning curve on LunarLander](results/figures/ll_ppo_learning_curve.png)
 
