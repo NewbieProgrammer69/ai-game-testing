@@ -2,7 +2,7 @@
 
 *Undergraduate Thesis — Sichuan University, Software Engineering*
 
-![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3.12.8-3776AB?logo=python&logoColor=white)
 ![PyTorch](https://img.shields.io/badge/PyTorch-2.x-EE4C2C?logo=pytorch&logoColor=white)
 ![Gymnasium](https://img.shields.io/badge/Gymnasium-0.29-0081A5)
 ![Stable-Baselines3](https://img.shields.io/badge/Stable--Baselines3-2.x-1f6feb)
@@ -35,7 +35,7 @@ The pipeline trains a PPO agent as the RL baseline and expert demonstration sour
 
 ## Tech Stack
 
-- **Python** 3.10+
+- **Python** 3.12.8
 - **PyTorch** — Behavior Cloning neural networks
 - **Stable-Baselines3** — PPO implementation
 - **Gymnasium** — `CartPole-v1`, `LunarLander-v3`
